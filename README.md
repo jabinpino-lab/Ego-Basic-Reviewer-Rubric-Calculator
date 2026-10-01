@@ -35,10 +35,20 @@ This project includes an Electron desktop wrapper so the calculator can be packa
 
    This builds the web app and opens it in an Electron desktop window.
 
-### Create distributable installers
+### Download the Windows and macOS apps
 
-- Windows: `npm run desktop:dist` creates installer and portable builds in `release/`.
+The GitHub Actions workflow builds both desktop versions automatically when code is pushed to `main`, and can also be started manually:
+
+1. Open the repository's **Actions** tab and select **Build Desktop App**.
+2. Choose **Run workflow** to start a build.
+3. After both jobs finish, open the workflow run's **Artifacts** section.
+4. Download `windows-installers` for the Windows `.exe` installer / portable app, or `macos-installer` for the macOS `.dmg` installer.
+
+To publish downloadable installers on a GitHub Release, create and push a version tag such as `v1.0.1`. The workflow builds both platforms and attaches their installers to that release.
+
+### Build locally
+
+- Windows: `npm run desktop:dist` creates Windows installer and portable builds in `release/`.
 - macOS: `npm run desktop:dist` creates a DMG in `release/` (build on macOS).
-- Linux: `npm run desktop:dist` creates an AppImage in `release/` (build on Linux).
 
-Build the distributables on the target operating system. The calculator currently runs locally in the desktop window; it does not require a hosted website for its core calculation.
+Build each installer on its target operating system. The calculator runs locally in the desktop window and does not require a hosted website for its core calculation. macOS signing and notarization are not configured yet, so macOS may show a security warning when opening the app.
