@@ -6,6 +6,9 @@ on:
     tags: ["v*"]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -24,9 +27,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ego-basic-reviewer-rubric-calculator-windows
-          path: release/*
+          path: |
+            release/*.exe
+            release/*.blockmap
           if-no-files-found: error
           retention-days: 14
+      - name: Publish Windows files to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.exe
+            release/*.blockmap
 
   build-macos:
     runs-on: macos-latest
@@ -48,3 +60,8 @@ jobs:
           path: release/*.dmg
           if-no-files-found: error
           retention-days: 14
+      - name: Publish macOS installer to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*.dmg
