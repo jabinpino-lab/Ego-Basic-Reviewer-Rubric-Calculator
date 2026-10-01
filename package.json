@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "desktop": "npm run build && electron .",
     "desktop:pack": "npm run build && electron-builder --dir",
-    "desktop:dist": "npm run build && electron-builder"
+    "desktop:dist": "npm run build && electron-builder --publish never"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
