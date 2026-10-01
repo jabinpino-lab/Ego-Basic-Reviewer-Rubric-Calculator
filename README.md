@@ -19,3 +19,26 @@ Build with `npm run build`.
 - Feedback can be copied for the audit record.
 
 Thresholds are implemented from the supplied rubric. Some ranges in the source rubric are not explicitly defined; verify local interpretations for boundary cases.
+
+## Desktop app (Windows, macOS, Linux)
+
+This project includes an Electron desktop wrapper so the calculator can be packaged as installable software.
+
+1. Install Node.js (LTS).
+2. Download or clone this repository.
+3. In the project folder, run:
+
+   ```bash
+   npm install
+   npm run desktop
+   ```
+
+   This builds the web app and opens it in an Electron desktop window.
+
+### Create distributable installers
+
+- Windows: `npm run desktop:dist` creates installer and portable builds in `release/`.
+- macOS: `npm run desktop:dist` creates a DMG in `release/` (build on macOS).
+- Linux: `npm run desktop:dist` creates an AppImage in `release/` (build on Linux).
+
+Build the distributables on the target operating system. The calculator currently runs locally in the desktop window; it does not require a hosted website for its core calculation.
