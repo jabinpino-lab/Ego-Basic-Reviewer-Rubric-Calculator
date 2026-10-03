@@ -7,3 +7,4 @@
 @media(max-width:760px){.layout>.result{grid-column:1;grid-row:1}.layout>.rubric-guide{grid-column:1;grid-row:2}.layout>.inputs{grid-column:1;grid-row:3}}
 
 .quality-grade{display:flex;align-items:center;justify-content:center;gap:8px;margin:8px auto 12px;padding:7px 12px;border:1px solid #e2e7f0;border-radius:10px;background:#f8f9fc;width:max-content}.quality-grade strong{font-size:18px;color:#263653}.quality-grade span{font-size:11px;color:#68748b;font-weight:650}.guide-item .thresholds p{margin:5px 0}
+.quality-grade small{display:block;margin-top:3px;font-size:9px;color:#8791a3;font-weight:600}.quality-grade span{display:block}.quality-grade strong{display:block}
